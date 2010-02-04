@@ -20,8 +20,7 @@ no_index:
     - inc
     - t
 requires:
-  Moose: 0
-  MooseX::AttributeHelpers: 0
+  Moose: 0.94
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.02
+version: 0.03
