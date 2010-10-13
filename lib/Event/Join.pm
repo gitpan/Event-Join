@@ -2,7 +2,7 @@ package Event::Join;
 use Moose;
 use List::Util qw(reduce first);
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 has 'events' => (
     is         => 'ro',
@@ -48,6 +48,11 @@ before send_event => sub {
       if $self->event_sent($event_name);
 
     $self->_check_event_name($event_name);
+};
+
+around send_event => sub {
+    my ($orig, $self, $event_name, $value) = @_;
+    $self->$orig($event_name, $value);
 };
 
 after send_event => sub {
